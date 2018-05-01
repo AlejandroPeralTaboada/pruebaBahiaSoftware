@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Getting Started: Serving Web Content</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" type="text/css" media="all"
+		  href="../styles.css" th:href="@{/styles.css}" />
+</head>
+<body>
+
+<a class="filtros" th:each="type : ${options}" th:text="${type.name}"
+   th:href="@{'/?filter=' + ${type.value}}">Wireframe
+</a>
+
+<div>
+	<div th:each="pet : ${pets}" class="card">
+		<div class="container">
+			<div class="filtros">
+				<p class="p">Codigo</p>
+				<p th:text="${pet.id}" class="p"></p>
+			</div>
+			<div class="filtros">
+				<p class="p">Nombre</p>
+				<p th:text="${pet.name}" class="p"></p></div>
+			<div class="filtros">
+				<p class="p">Estado</p>
+				<p th:text="${pet.state}" class="p"></p></div>
+			<a class="filtros" th:href="@{'/pet/' + ${pet.id}}">Detalles</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>
